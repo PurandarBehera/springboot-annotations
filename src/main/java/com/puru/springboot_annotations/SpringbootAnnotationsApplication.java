@@ -1,5 +1,6 @@
 package com.puru.springboot_annotations;
 
+import com.puru.springboot_annotations.configurationproperties.AppPropertiesDemo;
 import com.puru.springboot_annotations.controller.MyController;
 import com.puru.springboot_annotations.controller.PizzaController;
 import com.puru.springboot_annotations.lazy.LazyLoader;
@@ -9,6 +10,7 @@ import com.puru.springboot_annotations.scope.SingletonBean;
 import com.puru.springboot_annotations.service.MyService;
 import com.puru.springboot_annotations.service.NonVegPizza;
 import com.puru.springboot_annotations.service.VegPizza;
+import com.puru.springboot_annotations.value.ValueAnnotationDemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -55,6 +57,14 @@ public class SpringbootAnnotationsApplication {
 		System.out.println(prototypeBean2.hashCode());
 		PrototypeBean prototypeBean3 = applicationContext.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean3.hashCode());
+
+		ValueAnnotationDemo valueAnnotationDemo = applicationContext.getBean(ValueAnnotationDemo.class);
+		System.out.println(valueAnnotationDemo.getDummyValue());
+		System.out.println(valueAnnotationDemo.getEmail());
+		System.out.println(valueAnnotationDemo.getUsername());
+
+		AppPropertiesDemo appPropertiesDemo = applicationContext.getBean(AppPropertiesDemo.class);
+		appPropertiesDemo.display();
 
 
 	}
